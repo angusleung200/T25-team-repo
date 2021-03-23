@@ -9,3 +9,7 @@
 # Chu King Fung (Anthony)
 	email: kfchuac@connect.ust.hk | github: AnthonyChu981 | dev branch: Anthony_feature1
 	Task 1 & Task 4
+
+# Ishan Hegde
+	email: ihegde@connect.ust.hk | github: IshanHegde | dev branch: Ishan_feature1
+	Task 3 & Task 6
