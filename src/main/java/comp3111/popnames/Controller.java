@@ -10,6 +10,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
+
 public class Controller {
 
     @FXML
@@ -68,6 +69,24 @@ public class Controller {
 
     @FXML
     private TextArea textAreaConsole;
+    
+    @FXML
+    private Button buttonDataTable_T1;
+
+    @FXML
+    private Button buttonPieChart_T1;
+
+    @FXML
+    private Button buttonBarChart_T1;
+
+    @FXML
+    private Button buttonSummary_T1;
+    
+    @FXML
+    private TextField textfieldYear_T1;
+    
+    @FXML
+    private TextField textfieldTopN_T1;
     
 
     /**
@@ -153,6 +172,35 @@ public class Controller {
     		oReport += String.format("#%d: %s\n", i, AnalyzeNames.getName(iYear, i, "M"));
     	textAreaConsole.setText(oReport);
     }
+    
+    //***************************
+    // Task 1
+    @FXML
+    void doSummary_T1() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	String oReport = Task1_AnalyzeNames.getSummary(year);
+    	textAreaConsole.setText(oReport);
+    }
+    
+    @FXML
+    void doDataTable_T1() {
+
+    }
+
+  
+    @FXML
+    void doPieChart_T1() {
+
+    }
+
+
+    @FXML
+    void doBarChart_T1() {
+
+    }
+    
+    //*******************************
+    
     
 
 }
