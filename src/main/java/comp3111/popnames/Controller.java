@@ -205,8 +205,18 @@ public class Controller {
 
   
     @FXML
-    void doPieChart_T1() {
-    	
+    void doPieChart_T1_M() {
+//    	int year = Integer.parseInt(textfieldYear_T1.getText());
+//    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+//    	Task1_AnalyzeNames.showPieChart_M(year, topN); 
+    }
+    
+    @FXML
+    void doPieChart_T1_F() {
+//    	int year = Integer.parseInt(textfieldYear_T1.getText());
+//    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+//    	Task1_AnalyzeNames.showPieChart_F(year, topN); 
+
     }
 
 

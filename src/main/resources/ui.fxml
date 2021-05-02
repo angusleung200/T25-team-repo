@@ -49,12 +49,12 @@
                               <Label layoutX="138.0" layoutY="175.0" text="REPORT" />
                               <Button fx:id="buttonDataTable_T1" layoutX="272.0" layoutY="171.0" mnemonicParsing="false" onAction="#doDataTable_M_T1" text="Data Table (Male)" />
                               <Button fx:id="buttonBarChart_T1" layoutX="405.0" layoutY="171.0" mnemonicParsing="false" onAction="#doBarChart_T1_M" text="Bar Chart (Male)" />
-                              <Button fx:id="buttonPieChart_T1" layoutX="535.0" layoutY="171.0" mnemonicParsing="false" onAction="#doPieChart_T1" text="Pie Chart (Male)" />
+                              <Button fx:id="buttonPieChart_T1" layoutX="535.0" layoutY="171.0" mnemonicParsing="false" onAction="#showPieChart_M" text="Pie Chart (Male)" />
                               <Label layoutX="349.0" layoutY="106.0" text="Range: 1880 - 2019" />
                               <Label layoutX="349.0" layoutY="139.0" prefHeight="15.0" prefWidth="178.0" text="Top N most popular names" />
                               <Button fx:id="buttonDataTable_T11" layoutX="272.0" layoutY="205.0" mnemonicParsing="false" onAction="#doDataTable_F_T1" text="Data Table (Female)" />
                               <Button fx:id="buttonBarChart_T11" layoutX="405.0" layoutY="205.0" mnemonicParsing="false" onAction="#doBarChart_T1_F" text="Bar Chart (Female)" />
-                              <Button fx:id="buttonPieChart_T11" layoutX="535.0" layoutY="205.0" mnemonicParsing="false" onAction="#doPieChart_T1" text="Pie Chart (Female)" />
+                              <Button fx:id="buttonPieChart_T11" layoutX="535.0" layoutY="205.0" mnemonicParsing="false" onAction="#doPieChart_T1_F" text="Pie Chart (Female)" />
                            </children>
                         </AnchorPane>
                     </content>
