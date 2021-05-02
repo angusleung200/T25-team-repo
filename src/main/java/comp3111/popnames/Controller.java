@@ -211,12 +211,17 @@ public class Controller {
 
 
     @FXML
-    void doBarChart_T1() {
+    void doBarChart_T1_M() {
     	int year = Integer.parseInt(textfieldYear_T1.getText());
     	int topN = Integer.parseInt(textfieldTopN_T1.getText());
-    	BarChart<String, Integer> bar_chart = Task1_AnalyzeNames.showBarChart_M(year, topN);
-
-    	
+    	Task1_AnalyzeNames.showBarChart_M(year, topN); 	
+    }
+    
+    @FXML
+    void doBarChart_T1_F() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	Task1_AnalyzeNames.showBarChart_F(year, topN); 	
     }
     
     //*******************************

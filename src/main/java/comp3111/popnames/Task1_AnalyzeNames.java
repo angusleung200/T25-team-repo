@@ -1,6 +1,7 @@
 package comp3111.popnames;
 import java.util.*;
 
+
 import javax.swing.*;
 
 import org.apache.commons.csv.CSVParser;
@@ -14,8 +15,8 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;  
 import javafx.scene.chart.XYChart;  
 import javafx.stage.Stage;
-import javafx.scene.Group;
-import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 public class Task1_AnalyzeNames {
 	
@@ -148,7 +149,7 @@ public class Task1_AnalyzeNames {
 		    return table_F;	
 		}
 		
-		public static BarChart<String, Integer> showBarChart_M(int year, int topN) {
+		public static void showBarChart_M(int year, int topN) {
 			
 			String[][] topN_M = getTopNnames(year, topN, "M");	
 			int max_occurrences = Integer.parseInt(topN_M[0][1]);
@@ -172,15 +173,47 @@ public class Task1_AnalyzeNames {
 		    bar_chart.getData().add(series);
 		    bar_chart.setVisible(true);
 		    
-		   
-		    
-//	    	Group root = new Group();  
-//	        root.getChildren().add(bar_chart);  
-//	        Scene scene = new Scene(root,600,400);  
-//	        primaryStage.setScene(scene);  
-//	        primaryStage.setTitle("BarChart");  
-//	        primaryStage.show();
+		    VBox vbox = new VBox();
+			Scene scene = new Scene(vbox, 500, 500);
+			Stage stage = new Stage();
+			vbox.getChildren().add(bar_chart);
+			stage.setTitle("Top" + topN + "Names (male) in " + year);
+			stage.setScene(scene);
+			stage.show();
 
-		    return bar_chart;
+		}
+		
+		public static void showBarChart_F(int year, int topN) {
+			
+			String[][] topN_F = getTopNnames(year, topN, "F");	
+			int max_occurrences = Integer.parseInt(topN_F[0][1]);
+			
+			CategoryAxis xaxis = new CategoryAxis();
+			xaxis.setLabel("Name"); 
+		    NumberAxis yaxis = new NumberAxis(1, max_occurrences, max_occurrences / 10);   
+		    yaxis.setLabel("Occurrences"); 
+		    
+		    XYChart.Series<String, Integer> series = new XYChart.Series<>();
+			series.setName("Name");
+		    
+		    BarChart<String, Integer> bar_chart = new BarChart(xaxis, yaxis);  
+		    bar_chart.setTitle("Top" + topN + "Names (male) in " + year);
+		    
+		    for(int i = 0; i < topN; ++i) {
+		    	series.getData().add(new XYChart.Data(topN_F[i][0], Integer.parseInt(topN_F[i][1])));  
+		    	
+		    }
+		    
+		    bar_chart.getData().add(series);
+		    bar_chart.setVisible(true);
+		    
+		    VBox vbox = new VBox();
+			Scene scene = new Scene(vbox, 500, 500);
+			Stage stage = new Stage();
+			vbox.getChildren().add(bar_chart);
+			stage.setTitle("Top" + topN + "Names (female) in " + year);
+			stage.setScene(scene);
+			stage.show();
+
 		}
 }
