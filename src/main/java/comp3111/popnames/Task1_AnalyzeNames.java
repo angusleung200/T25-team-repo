@@ -203,7 +203,6 @@ public class Task1_AnalyzeNames {
 		    
 		    for(int i = 0; i < topN; ++i) {
 		    	series.getData().add(new XYChart.Data<>(topN_F[i][0], Integer.parseInt(topN_F[i][1])));  
-		    	
 		    }
 		    
 		    bar_chart.getData().add(series);

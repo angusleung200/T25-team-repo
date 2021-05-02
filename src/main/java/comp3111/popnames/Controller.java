@@ -93,6 +93,24 @@ public class Controller {
     
     @FXML
     private TextField textfieldTopN_T1;
+    
+    @FXML
+    private TextField textfieldDadName_T4;
+    
+    @FXML
+    private TextField textfieldMomName_T4;
+    
+    @FXML
+    private TextField textfieldDadYOB_T4;
+    
+    @FXML
+    private TextField textfieldMomYOB_T4;
+    
+    @FXML
+    private Button buttonT4X1_T4;
+
+    @FXML
+    private Button buttonT4X2_T4;
 
 
     /**
@@ -236,6 +254,31 @@ public class Controller {
     
     //*******************************
     
+    //*******************************
+    //Task4
+    
+    @FXML
+    void t4x1_T4() {
+    	int dadYOB = Integer.parseInt(textfieldDadYOB_T4.getText());
+    	int momYOB = Integer.parseInt(textfieldMomYOB_T4.getText());
+    	String dadName = textfieldDadName_T4.getText();
+    	String momName = textfieldMomName_T4.getText();
+    	String oReport = Task4_nameRecommendation.t4x1_func(dadYOB, momYOB, dadName, momName);
+    	textAreaConsole.setText(oReport);
+    }
+    
+    @FXML
+    void t4x2_T4() {
+    	int dadYOB = Integer.parseInt(textfieldDadYOB_T4.getText());
+    	int momYOB = Integer.parseInt(textfieldMomYOB_T4.getText());
+    	String dadName = textfieldDadName_T4.getText();
+    	String momName = textfieldMomName_T4.getText();
+    	String oReport = Task4_nameRecommendation.t4x2_func(dadYOB, momYOB, dadName, momName);
+    	textAreaConsole.setText(oReport);
+    }
+    
+    
+    //*******************************
     
 
 }
