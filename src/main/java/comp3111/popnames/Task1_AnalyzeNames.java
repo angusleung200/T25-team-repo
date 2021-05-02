@@ -221,47 +221,46 @@ public class Task1_AnalyzeNames {
 		
 		public static void showPieChart_M(int year, int topN) {
 			
-//			String[][] topN_M = getTopNnames(year, topN, "M");	
-//			
-//			ObservableList<PieChart.Data> pie_chart_data = FXCollections.observableArrayList();
-//			
-//	        for(int i = 0; i < topN ; ++i){
-//	        	pie_chart_data.add(new PieChart.Data(topN_M[i][0], Integer.parseInt(topN_M[i][1])));
-//	        }
-//	        
-//			PieChart pie_chart = new PieChart(pie_chart_data);
-//			pie_chart.setTitle("Top" + topN + "Names (male) in " + year);
-//	        
-//			VBox vbox = new VBox();
-//			Scene scene = new Scene(vbox, 500, 500);
-//			Stage stage = new Stage();
-//			vbox.getChildren().add(pie_chart);
-//			stage.setTitle("Top" + topN + "Names (male) in " + year);
-//			stage.setScene(scene);
-//			stage.show();
+			String[][] topN_M = getTopNnames(year, topN, "M");	
+			
+			ObservableList<PieChart.Data> pie_chart_data = FXCollections.observableArrayList();
+			
+	        for(int i = 0; i < topN ; ++i){
+	        	pie_chart_data.add(new PieChart.Data(topN_M[i][0], Integer.parseInt(topN_M[i][1])));
+	        }
+	        
+			PieChart pie_chart = new PieChart(pie_chart_data);
+			pie_chart.setTitle("Top" + topN + "Names (male) in " + year);
+	        
+			VBox vbox = new VBox();
+			Scene scene = new Scene(vbox, 500, 500);
+			Stage stage = new Stage();
+			vbox.getChildren().add(pie_chart);
+			stage.setTitle("Top" + topN + "Names (male) in " + year);
+			stage.setScene(scene);
+			stage.show();
 		}
 		
 		public static void showPieChart_F(int year, int topN) {
 			
-//			String[][] topN_F = getTopNnames(year, topN, "F");	
-//			
-//			ObservableList<PieChart.Data> pie_chart_data = FXCollections.observableArrayList();
-//			
-//	        for(int i = 0; i < topN ; ++i){
-//	        	pie_chart_data.add(new PieChart.Data(topN_F[i][0], Integer.parseInt(topN_F[i][1])));
-//	        }
-//	        
-//			PieChart pie_chart = new PieChart(pie_chart_data);
-//			pie_chart.setTitle("Top" + topN + "Names (female) in " + year);
-//	        
-//			VBox vbox = new VBox();
-//			Scene scene = new Scene(vbox, 500, 500);
-//			Stage stage = new Stage();
-//			vbox.getChildren().add(pie_chart);
-//			stage.setTitle("Top" + topN + "Names (female) in " + year);
-//			stage.setScene(scene);
-//			stage.show();
+			String[][] topN_F = getTopNnames(year, topN, "F");	
+			
+			ObservableList<PieChart.Data> pie_chart_data = FXCollections.observableArrayList();
+			
+	        for(int i = 0; i < topN ; ++i){
+	        	pie_chart_data.add(new PieChart.Data(topN_F[i][0], Integer.parseInt(topN_F[i][1])));
+	        }
+	        
+			PieChart pie_chart = new PieChart(pie_chart_data);
+			pie_chart.setTitle("Top" + topN + "Names (female) in " + year);
+	        
+			VBox vbox = new VBox();
+			Scene scene = new Scene(vbox, 500, 500);
+			Stage stage = new Stage();
+			vbox.getChildren().add(pie_chart);
+			stage.setTitle("Top" + topN + "Names (female) in " + year);
+			stage.setScene(scene);
+			stage.show();
 		}
-		
-		
+			
 }
