@@ -4,11 +4,17 @@
 package comp3111.popnames;
 
 import javafx.fxml.FXML;
+import javafx.scene.chart.BarChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+
+import javax.swing.*;
 
 
 public class Controller {
@@ -87,7 +93,7 @@ public class Controller {
     
     @FXML
     private TextField textfieldTopN_T1;
-    
+
 
     /**
      *  Task Zero
@@ -178,25 +184,39 @@ public class Controller {
     @FXML
     void doSummary_T1() {
     	int year = Integer.parseInt(textfieldYear_T1.getText());
-    	String oReport = Task1_AnalyzeNames.getSummary(year);
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	String oReport = Task1_AnalyzeNames.getSummary(year, topN);
     	textAreaConsole.setText(oReport);
     }
     
     @FXML
-    void doDataTable_T1() {
-
+    void doDataTable_M_T1() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	JTable dataTable_M = Task1_AnalyzeNames.getDataTable_M(year, topN);
+    }
+    
+    @FXML
+    void doDataTable_F_T1() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	JTable dataTable_M = Task1_AnalyzeNames.getDataTable_F(year, topN);
     }
 
   
     @FXML
     void doPieChart_T1() {
-
+    	
     }
 
 
     @FXML
     void doBarChart_T1() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	BarChart<String, Integer> bar_chart = Task1_AnalyzeNames.showBarChart_M(year, topN);
 
+    	
     }
     
     //*******************************
