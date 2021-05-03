@@ -17,13 +17,23 @@ import org.eclipse.jetty.util.resource.Resource;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+
 import javafx.fxml.Initializable;
+
+import javafx.scene.chart.BarChart;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+
+import javax.swing.*;
+
 
 public class Controller implements Initializable{
 
@@ -85,6 +95,7 @@ public class Controller implements Initializable{
     private TextArea textAreaConsole;
     
     @FXML
+
     private TextField t2_textfield_yoi1;
     
     @FXML
@@ -161,6 +172,43 @@ public class Controller implements Initializable{
     	});
     }
     
+
+    private Button buttonDataTable_T1;
+
+    @FXML
+    private Button buttonPieChart_T1;
+
+    @FXML
+    private Button buttonBarChart_T1;
+
+    @FXML
+    private Button buttonSummary_T1;
+    
+    @FXML
+    private TextField textfieldYear_T1;
+    
+    @FXML
+    private TextField textfieldTopN_T1;
+    
+    @FXML
+    private TextField textfieldDadName_T4;
+    
+    @FXML
+    private TextField textfieldMomName_T4;
+    
+    @FXML
+    private TextField textfieldDadYOB_T4;
+    
+    @FXML
+    private TextField textfieldMomYOB_T4;
+    
+    @FXML
+    private Button buttonT4X1_T4;
+
+    @FXML
+    private Button buttonT4X2_T4;
+
+
     /**
      *  Task Zero
      *  To be triggered by the "Summary" button on the Task Zero Tab 
@@ -245,6 +293,7 @@ public class Controller implements Initializable{
     	textAreaConsole.setText(oReport);
     }
     
+
     
     /**
      *  Task two
@@ -379,6 +428,91 @@ public class Controller implements Initializable{
     	String preference = "";
     	String algorithm = "";
     	PredictionOnNamesForCompatiblePairs pnp = new PredictionOnNamesForCompatiblePairs();
+
+    //***************************
+    // Task 1
+    @FXML
+    void doSummary_T1() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	String oReport = Task1_AnalyzeNames.getSummary(year, topN);
+    	textAreaConsole.setText(oReport);
+    }
+    
+    @FXML
+    void doDataTable_M_T1() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	JTable dataTable_M = Task1_AnalyzeNames.getDataTable_M(year, topN);
+    }
+    
+    @FXML
+    void doDataTable_F_T1() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	JTable dataTable_M = Task1_AnalyzeNames.getDataTable_F(year, topN);
+    }
+
+  
+    @FXML
+    void doPieChart_T1_M() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	Task1_AnalyzeNames.showPieChart_M(year, topN); 
+    }
+    
+    @FXML
+    void doPieChart_T1_F() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	Task1_AnalyzeNames.showPieChart_F(year, topN); 
+
+    }
+
+
+    @FXML
+    void doBarChart_T1_M() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	Task1_AnalyzeNames.showBarChart_M(year, topN); 	
+    }
+    
+    @FXML
+    void doBarChart_T1_F() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	Task1_AnalyzeNames.showBarChart_F(year, topN); 	
+    }
+    
+    //*******************************
+    
+    //*******************************
+    //Task4
+    
+    @FXML
+    void t4x1_T4() {
+    	int dadYOB = Integer.parseInt(textfieldDadYOB_T4.getText());
+    	int momYOB = Integer.parseInt(textfieldMomYOB_T4.getText());
+    	String dadName = textfieldDadName_T4.getText();
+    	String momName = textfieldMomName_T4.getText();
+    	String oReport = Task4_nameRecommendation.t4x1_func(dadYOB, momYOB, dadName, momName);
+    	textAreaConsole.setText(oReport);
+    }
+    
+    @FXML
+    void t4x2_T4() {
+    	int dadYOB = Integer.parseInt(textfieldDadYOB_T4.getText());
+    	int momYOB = Integer.parseInt(textfieldMomYOB_T4.getText());
+    	String dadName = textfieldDadName_T4.getText();
+    	String momName = textfieldMomName_T4.getText();
+    	String oReport = Task4_nameRecommendation.t4x2_func(dadYOB, momYOB, dadName, momName);
+    	textAreaConsole.setText(oReport);
+    }
+    
+    
+    //*******************************
+    
+
 
     	if(pnp.dataChecker(t5_textfield_name,t5_textfield_year,t5_combobox_gender,t5_combobox_gender_mate,t5_combobox_preference,t5_combobox_algorithm,t5_combobox_year_range))
     	{

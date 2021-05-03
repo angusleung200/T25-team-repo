@@ -3,3 +3,4 @@
 
 # Ignore Gradle build output directory
 build
+src/main/java/comp3111/popnames/Task1_AnalyzeNames.java
