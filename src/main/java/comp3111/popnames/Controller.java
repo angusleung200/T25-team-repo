@@ -407,7 +407,7 @@ public class Controller {
 		if(iPreference.equals("O")&&iYOB>1890) 
 		{
 			
-			Task3Name.showLineChart(iYOB,iYOB+10,iMateName,iGenderMate);
+			Task3Name.showLineChart(iYOB-10,iYOB,iMateName,iGenderMate);
 			
 		}
 		textAreaConsole.setText(oScore);
