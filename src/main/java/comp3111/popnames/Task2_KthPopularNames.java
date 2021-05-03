@@ -88,7 +88,7 @@ public class Task2_KthPopularNames {
      * 	check the name whether existing
      *  
      */
-	private boolean checkExisting(List<ArrayList<String>> result,String name) {
+	public boolean checkExisting(List<ArrayList<String>> result,String name) {
 		for(int i=0;i<result.size();i++)
 		{
 			if(result.get(i).get(0).equals(name))
@@ -105,7 +105,7 @@ public class Task2_KthPopularNames {
      * search the name and return the index
      *  
      */
-	private int searchByName(List<ArrayList<String>> result,String name) {
+	public int searchByName(List<ArrayList<String>> result,String name) {
 		for(int i=0;i<result.size();i++) {
 			if(result.get(i).get(0).equals(name))
 				return i;
@@ -118,7 +118,7 @@ public class Task2_KthPopularNames {
      *  sort the data by the column(number)
      *  
      */
-	private List<ArrayList<String>> sort(List<ArrayList<String>> result,int number){
+	public List<ArrayList<String>> sort(List<ArrayList<String>> result,int number){
 		
 		int n = result.size();
 		for(int i=0; i < n; i++){  

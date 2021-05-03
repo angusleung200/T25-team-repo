@@ -567,17 +567,17 @@ public class Controller implements Initializable{
     void t4x1_T4() {
     	String _dadYOB = textfieldDadYOB_T4.getText();
     	String _momYOB = textfieldMomYOB_T4.getText();
-    	if(!Task1_AnalyzeNames.checkEmpty_T1(_dadYOB, _momYOB)) {
+    	if(!Task4_nameRecommendation.checkEmpty_T4(_dadYOB, _momYOB)) {
     		return;
     	}
     	int dadYOB = Integer.parseInt(_dadYOB);
     	int momYOB = Integer.parseInt(_momYOB);
-    	if(!Task1_AnalyzeNames.checkValidInput_T1(dadYOB, momYOB)) {
+    	if(!Task4_nameRecommendation.checkBirthday_T4(dadYOB, momYOB)) {
     		return;
     	}
     	String dadName = textfieldDadName_T4.getText();
     	String momName = textfieldMomName_T4.getText();
-    	if(!Task1_AnalyzeNames.checkEmpty_T1(dadName, momName)) {
+    	if(!Task4_nameRecommendation.checkEmpty_T4(dadName, momName)) {
     		return;
     	}
     	String oReport = Task4_nameRecommendation.t4x1_func(dadYOB, momYOB, dadName, momName);
@@ -594,17 +594,17 @@ public class Controller implements Initializable{
     void t4x2_T4() {
     	String _dadYOB = textfieldDadYOB_T4.getText();
     	String _momYOB = textfieldMomYOB_T4.getText();
-    	if(!Task1_AnalyzeNames.checkEmpty_T1(_dadYOB, _momYOB)) {
+    	if(!Task4_nameRecommendation.checkEmpty_T4(_dadYOB, _momYOB)) {
     		return;
     	}
     	int dadYOB = Integer.parseInt(_dadYOB);
     	int momYOB = Integer.parseInt(_momYOB);
-    	if(Task1_AnalyzeNames.checkValidInput_T1(dadYOB, momYOB)) {
+    	if(!Task4_nameRecommendation.checkBirthday_T4(dadYOB, momYOB)) {
     		return;
     	}
     	String dadName = textfieldDadName_T4.getText();
     	String momName = textfieldMomName_T4.getText();
-    	if(Task1_AnalyzeNames.checkEmpty_T1(dadName, momName)) {
+    	if(!Task4_nameRecommendation.checkEmpty_T4(dadName, momName)) {
     		return;
     	}
     	String oReport = Task4_nameRecommendation.t4x2_func(dadYOB, momYOB, dadName, momName);
