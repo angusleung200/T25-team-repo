@@ -78,13 +78,30 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab fx:id="tabReport3" text="Reporting 3">
+                  <Tab fx:id="tabReport3" text="Task 3">
                     <content>
                         <AnchorPane>
                            <children>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="318.0" prefWidth="719.0">
                                  <children>
-                                    <TextArea layoutX="112.0" layoutY="26.0" prefHeight="111.0" prefWidth="362.0" text="Task #3: Popularity of Names (data reporting)&#10;&#10;Generate a report in response to the queries on the popularity of a name over a given period.&#10;&#10;" wrapText="true" />
+                                    <Label layoutX="40.0" layoutY="170.0" text="Ending Year" />
+                              		<Label layoutX="40.0" layoutY="140.0" text="Starting Year" />
+                              		<Button fx:id="buttonSummary_T3" layoutX="125.0" layoutY="210.0" mnemonicParsing="false" onAction="#doSummary_T3" text="Summary" />
+                              		<TextField fx:id="textfieldGender_T3" layoutX="400.0" layoutY="140.0" prefHeight="26.0" prefWidth="150.0" promptText="Eg. M, F" />
+                              		<TextField fx:id="textfieldName_T3" layoutX="400.0" layoutY="175.0" prefHeight="26.0" prefWidth="150.0" promptText="Name" />
+                              		<TextField fx:id="textfieldYear2_T3" layoutX="125.0" layoutY="175.0" prefHeight="26.0" prefWidth="150.0" promptText="Ending Year" />
+                              		<TextField fx:id="textfieldYear1_T3" layoutX="125.0" layoutY="140.0" prefHeight="26.0" prefWidth="150.0" promptText="Starting Year" />                       
+                              		<Button fx:id="buttonDataTable_T3" layoutX="125.0" layoutY="250.0" mnemonicParsing="false" onAction="#doDataTable_T3" text="Table" />
+                              		<Button fx:id="buttonBarChart_T3" layoutX="400.0" layoutY="210.0" mnemonicParsing="false" onAction="#doBarChart_T3" text="Bar Chart" />
+                              		<Button fx:id="buttonLineChart_T3" layoutX="400.0" layoutY="250.0" mnemonicParsing="false" onAction="#doLineChart_T3" text="Line Chart" />
+                              		<Label layoutX="275.0" layoutY="100.0" text="Range: 1880 - 2019" />
+                              		<Label layoutX="575.0" layoutY="175.0" text="Name" />
+                              		<Label layoutX="575.0" layoutY="140.0" text="Gender" />
+                              		<Label layoutX="250.0" layoutY="33.0" prefHeight="55.0" prefWidth="403.0" text="Task3: Popularity of Names ">
+                                 	<font>
+                                    	<Font size="18.0" />
+                                 	</font>
+                              		</Label>
                                  </children>
                               </AnchorPane>
                            </children>
@@ -126,11 +143,27 @@
                         </AnchorPane>
                     </content>
                   </Tab>
-                  <Tab fx:id="tabApp3" text="Application 3">
+                  <Tab fx:id="tabApp3" text="Task 6">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TextArea layoutX="40.0" layoutY="39.0" prefHeight="105.0" prefWidth="450.0" text="Task #6: Prediction on Scores for Compatible Pairs (application)&#10;&#10;Develop and implement an online service using empirical data to help make informed decisions on predicting scores for compatible pairs.&#10;" wrapText="true" />
+                           
+                              		<Button fx:id="buttonT6X2_T6" layoutX="200.0" layoutY="250.0" mnemonicParsing="false" onAction="#doT6X2_T6" text="T6X2" />
+                              		<TextField fx:id="textfieldiName_T6" layoutX="500.0" layoutY="140.0" prefHeight="26.0" prefWidth="150.0" promptText="Name" />
+                              		<TextField fx:id="textfieldiMateName_T6" layoutX="500.0" layoutY="175.0" prefHeight="26.0" prefWidth="150.0" promptText="Mates'Name" />
+                              		<TextField fx:id="textfieldiGender_T6" layoutX="100.0" layoutY="175.0" prefHeight="26.0" prefWidth="150.0" promptText="Gender: Eg. M,F" />
+                              		<TextField fx:id="textfieldiGenderMate_T6" layoutX="300.0" layoutY="140.0" prefHeight="26.0" prefWidth="150.0" promptText="Mates'Gender: Eg. M,F" />                       
+                              		<TextField fx:id="textfieldiYOB_T6" layoutX="300.0" layoutY="175.0" prefHeight="26.0" prefWidth="150.0" promptText="Year of Birth" />
+                              		<TextField fx:id="textfieldiPreference_T6" layoutX="100.0" layoutY="140.0" prefHeight="26.0" prefWidth="150.0" promptText="Young/Old: Y/O" />                       
+                              		
+                              		<Button fx:id="buttonT6X1_T6" layoutX="400.0" layoutY="250.0" mnemonicParsing="false" onAction="#doT6X1_T6" text="T6X1" />
+                              		<Label layoutX="275.0" layoutY="100.0" text="Range: 1880 - 2019" />
+                              		
+                              		<Label layoutX="150.0" layoutY="33.0" prefHeight="55.0" prefWidth="403.0" text="Task6: Prediction on Scores for Compatible Pairs ">
+                                 	<font>
+                                    	<Font size="18.0" />
+                                 	</font>
+                              		</Label>
                            </children>
                         </AnchorPane>
                     </content>

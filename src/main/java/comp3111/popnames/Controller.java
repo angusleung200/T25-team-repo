@@ -122,10 +122,43 @@ public class Controller {
     private TextField textfieldName_T3;
     
     @FXML
-    private TextField textfeildGender_T3;
+    private TextField textfieldGender_T3;
     
     @FXML
     private Button buttonDataTable_T3;
+    
+    @FXML
+    private Button buttonSummary_T3;
+    
+    @FXML
+    private Button buttonBarChart_T3;
+    
+    @FXML
+    private Button buttonLineChart_T3;
+    
+    @FXML
+    private Button buttonT6X1_T6;
+    
+    @FXML
+    private Button buttonT6X2_T6;
+    
+    @FXML
+    private TextField textfieldiName_T6;
+    
+    @FXML
+    private TextField textfieldiMateName_T6;
+    
+    @FXML
+    private TextField textfieldiGender_T6;
+    
+    @FXML
+    private TextField textfieldiGenderMate_T6;
+    
+    @FXML
+    private TextField textfieldiYOB_T6;
+    
+    @FXML
+    private TextField textfieldiPreference_T6;
 
 
     /**
@@ -304,8 +337,80 @@ public class Controller {
     	int year1 = Integer.parseInt(textfieldYear1_T3.getText());
     	int year2 = Integer.parseInt(textfieldYear2_T3.getText());
     	String name = textfieldName_T3.getText();
-    	String gender = textfeildGender_T3.getText();
+    	String gender = textfieldGender_T3.getText();
     	JTable finalTable = Task3Name.getFinalTable(year1,year2,name,gender);
+    }
+    @FXML
+    void doSummary_T3() 
+    {
+    	int year1 = Integer.parseInt(textfieldYear1_T3.getText());
+    	int year2 = Integer.parseInt(textfieldYear2_T3.getText());
+    	String name = textfieldName_T3.getText();
+    	String gender = textfieldGender_T3.getText();
+    	String report = Task3Name.getSummary(year1,year2,name,gender);
+    	textAreaConsole.setText(report);
+    }
+    
+    @FXML
+    void doBarChart_T3() 
+    {
+    	int year1 = Integer.parseInt(textfieldYear1_T3.getText());
+    	int year2 = Integer.parseInt(textfieldYear2_T3.getText());
+    	String name = textfieldName_T3.getText();
+    	String gender = textfieldGender_T3.getText();
+    	Task3Name.showBarChart(year1,year2,name,gender);
+    }
+    
+    @FXML
+    void doLineChart_T3() 
+    {
+    	int year1 = Integer.parseInt(textfieldYear1_T3.getText());
+    	int year2 = Integer.parseInt(textfieldYear2_T3.getText());
+    	String name = textfieldName_T3.getText();
+    	String gender = textfieldGender_T3.getText();
+    	Task3Name.showLineChart(year1,year2,name,gender);
+    }
+    
+  //*******************************
+    
+  //*******************************
+    // Task 6:
+    
+    @FXML
+    void doT6X1_T6() 
+    {
+    	String iMateName =  textfieldiMateName_T6.getText();
+    	String iName = textfieldiName_T6.getText();
+    	String oScore = Task6Name.t6x1_func(iName,iMateName);
+    	textAreaConsole.setText(oScore);
+    	
+    }
+    
+    @FXML
+    void doT6X2_T6() 
+    {
+    	String iMateName =  textfieldiMateName_T6.getText();
+    	String iName = textfieldiName_T6.getText();
+    	String iPreference = textfieldiPreference_T6.getText();
+    	String iGender = textfieldiGender_T6.getText();
+    	String iGenderMate = textfieldiGenderMate_T6.getText();
+    	int iYOB = Integer.parseInt(textfieldiYOB_T6.getText());
+    	String oScore = Task6Name.t6x2_func(iName,iMateName,iGender,iGenderMate,iYOB,iPreference);
+    	if(iPreference.equals("Y")&&iYOB<2002) 
+		{
+			
+			Task3Name.showLineChart(iYOB,iYOB+10,iMateName,iGenderMate);
+			
+			
+		}
+		
+		if(iPreference.equals("O")&&iYOB>1890) 
+		{
+			
+			Task3Name.showLineChart(iYOB,iYOB+10,iMateName,iGenderMate);
+			
+		}
+		textAreaConsole.setText(oScore);
     }
    
 
