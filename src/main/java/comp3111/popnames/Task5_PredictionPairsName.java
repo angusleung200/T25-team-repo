@@ -12,14 +12,23 @@ import edu.duke.FileResource;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
-public class PredictionOnNamesForCompatiblePairs {
+public class Task5_PredictionPairsName {
 
-	
-	PredictionOnNamesForCompatiblePairs(){
+	/**
+     *  Task5_PredictionPairsName
+     *  Constructor
+     *  
+     */
+	Task5_PredictionPairsName(){
 		
 	}
 	
 	
+	/**
+     *  dataChecker
+     *  get the data from ui component and valid the data for task5
+     *  
+     */
 	public boolean dataChecker(TextField t5_textfield_name,TextField t5_textfield_year, ComboBox<String> t5_combobox_gender,ComboBox<String> t5_combobox_gender_mate,ComboBox<String> t5_combobox_preference,ComboBox<String> t5_combobox_algorithm,ComboBox<String> t5_combobox_year_range) {
 		int year = -1;
     	int yearRange = -1;
@@ -52,9 +61,9 @@ public class PredictionOnNamesForCompatiblePairs {
     	algorithm = t5_combobox_algorithm.getSelectionModel().getSelectedItem().toString();
     	yearRange = Integer.parseInt(t5_combobox_year_range.getSelectionModel().getSelectedItem().toString());
     	
-    	if (year < 1980 || year > 2019)
+    	if (year < 1880 || year > 2019)
     	{
-    		pw.displayErrorMsg("Error","Year should be between 1980 and 2019");
+    		pw.displayErrorMsg("Error","Year should be between 1880 and 2019");
     		return false;
     	}
     	
@@ -65,9 +74,9 @@ public class PredictionOnNamesForCompatiblePairs {
     			pw.displayErrorMsg("Error","Value out of range.Year and Year Range should be less than and equals to 2019. "+String.valueOf(year)+" + "+String.valueOf(yearRange)+" = "+String.valueOf(year+yearRange)+" <= 2019");
     			return false;
     		}
-    		else if (preference.equals("Older") && year-yearRange<1980)
+    		else if (preference.equals("Older") && year-yearRange<1880)
     		{
-    			pw.displayErrorMsg("Error","Value out of range.Year and Year Range should be greater than and equals to 1980. "+String.valueOf(year)+" - "+String.valueOf(yearRange)+" = "+String.valueOf(year-yearRange)+" >= 1980");
+    			pw.displayErrorMsg("Error","Value out of range.Year and Year Range should be greater than and equals to 1880. "+String.valueOf(year)+" - "+String.valueOf(yearRange)+" = "+String.valueOf(year-yearRange)+" >= 1880");
     			return false;
     		}
     	}
@@ -75,12 +84,21 @@ public class PredictionOnNamesForCompatiblePairs {
 		return true;
 	}
 	
-	
+	/**
+     *  CSVParser
+     *  read the data from csv
+     *  
+     */
 	public static CSVParser getFileParser(int year) {
 	     FileResource fr = new FileResource(String.format("dataset/yob%s.csv", year));
 	     return fr.getCSVParser(false);
 	}
 	
+	/**
+     *  report
+     *  process the data and find the pairs of the name with different algorithm
+     *  
+     */
 	public List<String> report(int year,int yearRange,String algorithm,char genderMate,String preference,String name) {
 		if(algorithm.equals("T5X1")) { // T5X1
 			List<String> csvList = new ArrayList<String>();
@@ -155,7 +173,11 @@ public class PredictionOnNamesForCompatiblePairs {
 	}
 	
 	
-	
+	/**
+     *  getSummary
+     *  return summary of the result
+     *  
+     */
 	public String getSummary(List<String> result,int year,int yearRange,String preference,String algorithm) {
 		String oReport="";
 		if(result.size() > 0)

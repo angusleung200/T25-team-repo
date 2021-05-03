@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Observable;
 import java.util.ResourceBundle;
 import java.net.URL;
-import comp3111.popnames.KthPopularNames;
-import comp3111.popnames.PredictionOnNamesForCompatiblePairs;
+import comp3111.popnames.Task2_KthPopularNames;
+import comp3111.popnames.Task5_PredictionPairsName;
 import comp3111.popnames.PopupWindow;
 
 import org.eclipse.jetty.util.resource.Resource;
@@ -172,7 +172,7 @@ public class Controller implements Initializable{
     	});
     }
     
-
+    @FXML
     private Button buttonDataTable_T1;
 
     @FXML
@@ -310,7 +310,7 @@ public class Controller implements Initializable{
     	String tmp_year1 = t2_textfield_yoi1.getText();
     	String tmp_year2 = t2_textfield_yoi2.getText();
     	PopupWindow pw = new PopupWindow();
-    	KthPopularNames kpn = new KthPopularNames();
+    	Task2_KthPopularNames kpn = new Task2_KthPopularNames();
     	
     	if(kpn.dataChecker(t2_textfield_yoi1, t2_textfield_yoi2, t2_textfield_k_th)) {
 	    	iYear1 = Integer.parseInt(tmp_year1);
@@ -339,7 +339,7 @@ public class Controller implements Initializable{
     	String tmp_year1 = t2_textfield_yoi1.getText();
     	String tmp_year2 = t2_textfield_yoi2.getText();
     	PopupWindow pw = new PopupWindow();
-    	KthPopularNames kpn = new KthPopularNames();
+    	Task2_KthPopularNames kpn = new Task2_KthPopularNames();
     	
     	if(kpn.dataChecker(t2_textfield_yoi1, t2_textfield_yoi2, t2_textfield_k_th)) {
 	    	iYear1 = Integer.parseInt(tmp_year1);
@@ -368,7 +368,7 @@ public class Controller implements Initializable{
     	String tmp_year1 = t2_textfield_yoi1.getText();
     	String tmp_year2 = t2_textfield_yoi2.getText();
     	PopupWindow pw = new PopupWindow();
-    	KthPopularNames kpn = new KthPopularNames();
+    	Task2_KthPopularNames kpn = new Task2_KthPopularNames();
     	
     	if(kpn.dataChecker(t2_textfield_yoi1, t2_textfield_yoi2, t2_textfield_k_th)) {
 	    	iYear1 = Integer.parseInt(tmp_year1);
@@ -398,7 +398,7 @@ public class Controller implements Initializable{
     	String tmp_year1 = t2_textfield_yoi1.getText();
     	String tmp_year2 = t2_textfield_yoi2.getText();
     	PopupWindow pw = new PopupWindow();
-    	KthPopularNames kpn = new KthPopularNames();
+    	Task2_KthPopularNames kpn = new Task2_KthPopularNames();
     	
     	if(kpn.dataChecker(t2_textfield_yoi1, t2_textfield_yoi2, t2_textfield_k_th)) {
 	    	iYear1 = Integer.parseInt(tmp_year1);
@@ -412,25 +412,7 @@ public class Controller implements Initializable{
     		return;
     }
     
-    
-    /**
-     *  Task five
-     *  To be triggered by the "Summary" button on the Task two Tab
-     *  
-     */
-    @FXML
-    void doPredictionOnNamesForSummary() {
-    	int year = -1;
-    	int yearRange = -1;
-    	String name = "";
-    	String gender = "";
-    	String genderMate = "";
-    	String preference = "";
-    	String algorithm = "";
-    	PredictionOnNamesForCompatiblePairs pnp = new PredictionOnNamesForCompatiblePairs();
-
-    //***************************
-    // Task 1
+	
     @FXML
     void doSummary_T1() {
     	int year = Integer.parseInt(textfieldYear_T1.getText());
@@ -508,11 +490,24 @@ public class Controller implements Initializable{
     	String oReport = Task4_nameRecommendation.t4x2_func(dadYOB, momYOB, dadName, momName);
     	textAreaConsole.setText(oReport);
     }
-    
-    
-    //*******************************
-    
 
+   
+
+    /**
+     *  Task five
+     *  To be triggered by the "Summary" button on the Task two Tab
+     *  
+     */
+    @FXML
+    void doPredictionOnNamesForSummary() {
+    	int year = -1;
+    	int yearRange = -1;
+    	String name = "";
+    	String gender = "";
+    	String genderMate = "";
+    	String preference = "";
+    	String algorithm = "";
+    	Task5_PredictionPairsName pnp = new Task5_PredictionPairsName();
 
     	if(pnp.dataChecker(t5_textfield_name,t5_textfield_year,t5_combobox_gender,t5_combobox_gender_mate,t5_combobox_preference,t5_combobox_algorithm,t5_combobox_year_range))
     	{
@@ -546,7 +541,7 @@ public class Controller implements Initializable{
     	String preference = "";
     	String algorithm = "";
     	PopupWindow pw = new PopupWindow();
-    	PredictionOnNamesForCompatiblePairs pnp = new PredictionOnNamesForCompatiblePairs();
+    	Task5_PredictionPairsName pnp = new Task5_PredictionPairsName();
 
     	if(pnp.dataChecker(t5_textfield_name,t5_textfield_year,t5_combobox_gender,t5_combobox_gender_mate,t5_combobox_preference,t5_combobox_algorithm,t5_combobox_year_range))
     	{

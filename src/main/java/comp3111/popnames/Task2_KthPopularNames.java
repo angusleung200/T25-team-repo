@@ -16,13 +16,22 @@ import edu.duke.FileResource;
 import javafx.scene.control.TextField;
 
 
-public class KthPopularNames {
+public class Task2_KthPopularNames {
 	
-	KthPopularNames() {
+	/**
+     *  Task2_KthPopularNames
+     *  Constructor
+     *  
+     */
+	Task2_KthPopularNames() {
 		
 	}
 	
-	
+	/**
+     *  dataChecker
+     *  get the data from ui component and valid the data for task2
+     *  
+     */
 	public boolean dataChecker(TextField t2_textfield_yoi1,TextField t2_textfield_yoi2,TextField t2_textfield_k_th){
 		int iYear1 = -1;
     	int iYear2 = -1;
@@ -41,8 +50,8 @@ public class KthPopularNames {
     	iYear1 = Integer.parseInt(tmp_year1);
 		iYear2 = Integer.parseInt(tmp_year2);
 		
-		if(iYear1<1980 || iYear1>2019 || iYear2<1980 || iYear2>2019) {
-			pw.displayErrorMsg("Error","Year should be between 1980 and 2019");
+		if(iYear1<1880 || iYear1>2019 || iYear2<1880 || iYear2>2019) {
+			pw.displayErrorMsg("Error","Year should be between 1880 and 2019");
 			return false;
 		}
 		if(iYear1 >= iYear2) {
@@ -64,12 +73,21 @@ public class KthPopularNames {
 		return true;
 	}
 	
-	
+	/**
+     *  CSVParser
+     *  read the data from csv
+     *  
+     */
 	public static CSVParser getFileParser(int year) {
 	     FileResource fr = new FileResource(String.format("dataset/yob%s.csv", year));
 	     return fr.getCSVParser(false);
 	}
 	
+	/**
+     *  checkExisting
+     * 	check the name whether existing
+     *  
+     */
 	private boolean checkExisting(List<ArrayList<String>> result,String name) {
 		for(int i=0;i<result.size();i++)
 		{
@@ -81,6 +99,12 @@ public class KthPopularNames {
 		return false; // not existing
 	}
 	
+	
+	/**
+     *  searchByName
+     * search the name and return the index
+     *  
+     */
 	private int searchByName(List<ArrayList<String>> result,String name) {
 		for(int i=0;i<result.size();i++) {
 			if(result.get(i).get(0).equals(name))
@@ -89,6 +113,11 @@ public class KthPopularNames {
 		return -1;
 	}
 	
+	/**
+     *  sort
+     *  sort the data by the column(number)
+     *  
+     */
 	private List<ArrayList<String>> sort(List<ArrayList<String>> result,int number){
 		
 		int n = result.size();
@@ -105,7 +134,11 @@ public class KthPopularNames {
 		
 	}
 	
-	
+	/**
+     *  report
+     *  process the data and find the k-th popular names
+     *  
+     */
 	public List<ArrayList<String>> report(int year1,int year2,int k,char gender) {
 		
 		List<ArrayList<String>> csvList = new ArrayList<ArrayList<String>>();
@@ -178,7 +211,11 @@ public class KthPopularNames {
 	}
 	
 	
-	
+	/**
+     *  getSummary
+     *  return summary of the result
+     *  
+     */
 	public String getSummary(List<ArrayList<String>> result,int year1,int year2,int k,char gender) {
 		if(result.size() > 0)
 		{
