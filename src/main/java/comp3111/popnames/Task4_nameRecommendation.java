@@ -3,6 +3,12 @@ import java.util.Random;
 
 public class Task4_nameRecommendation {
 	
+	/**
+	 * Task4
+	 * find the most popular male/female name in the year of dadYOB/momYOB and return the recommendation report.
+	 * 
+	 */
+	
 	public static String t4x1_func(int dadYOB, int momYOB, String dadName, String momName) {
 		String[][] topN_M = Task1_AnalyzeNames.getTopNnames(dadYOB, 1, "M");
 		String[][] topN_F = Task1_AnalyzeNames.getTopNnames(momYOB, 1, "F");
@@ -16,7 +22,14 @@ public class Task4_nameRecommendation {
 		
 		return oReport;	
 	}
-
+	
+	/**
+	 * Task4
+	 * find the top 10 popular male/female names in the year of dadYOB/momYOB and recommend a random name in the top
+	 * 10 names list and return the recommendation report.
+	 * 
+	 */
+	
 	public static String t4x2_func(int dadYOB, int momYOB, String dadName, String momName) {
 		String[][] topN_M = Task1_AnalyzeNames.getTopNnames(dadYOB, 10, "M");
 		String[][] topN_F = Task1_AnalyzeNames.getTopNnames(momYOB, 10, "F");

@@ -5,7 +5,6 @@ package comp3111.popnames;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 import java.util.ResourceBundle;
 import java.net.URL;
 import comp3111.popnames.Task2_KthPopularNames;
@@ -412,84 +411,210 @@ public class Controller implements Initializable{
     		return;
     }
     
-	
+
+  
+    
+    
+    /**
+     *  Task one
+     *  To be triggered by the "Summary" button on the Task one Tab
+     *  
+     */
+    
+
     @FXML
     void doSummary_T1() {
-    	int year = Integer.parseInt(textfieldYear_T1.getText());
-    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	String _year = textfieldYear_T1.getText();
+    	String _topN = textfieldTopN_T1.getText();
+    	if(!Task1_AnalyzeNames.checkEmpty_T1(_year, _topN)) {
+    		return;
+    	}
+    	int year = Integer.parseInt(_year);
+    	int topN = Integer.parseInt(_topN);
+    	if(!Task1_AnalyzeNames.checkValidInput_T1(year, topN)) {
+    		return;
+    	}
     	String oReport = Task1_AnalyzeNames.getSummary(year, topN);
     	textAreaConsole.setText(oReport);
     }
     
+    /**
+     *  Task one
+     *  To be triggered by the "Data Table (Male)" button on the Task one Tab
+     *  
+     */
+    
     @FXML
     void doDataTable_M_T1() {
-    	int year = Integer.parseInt(textfieldYear_T1.getText());
-    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	String _year = textfieldYear_T1.getText();
+    	String _topN = textfieldTopN_T1.getText();
+    	if(!Task1_AnalyzeNames.checkEmpty_T1(_year, _topN)) {
+    		return;
+    	}
+    	int year = Integer.parseInt(_year);
+    	int topN = Integer.parseInt(_topN);
+    	if(!Task1_AnalyzeNames.checkValidInput_T1(year, topN)) {
+    		return;
+    	}
     	JTable dataTable_M = Task1_AnalyzeNames.getDataTable_M(year, topN);
     }
     
+    
+    /**
+     *  Task one
+     *  To be triggered by the "PieChart (Female)" button on the Task one Tab
+     *  
+     */
     @FXML
     void doDataTable_F_T1() {
-    	int year = Integer.parseInt(textfieldYear_T1.getText());
-    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	String _year = textfieldYear_T1.getText();
+    	String _topN = textfieldTopN_T1.getText();
+    	if(!Task1_AnalyzeNames.checkEmpty_T1(_year, _topN)) {
+    		return;
+    	}
+    	int year = Integer.parseInt(_year);
+    	int topN = Integer.parseInt(_topN);
+    	if(!Task1_AnalyzeNames.checkValidInput_T1(year, topN)) {
+    		return;
+    	}
     	JTable dataTable_M = Task1_AnalyzeNames.getDataTable_F(year, topN);
     }
 
-  
+    /**
+     *  Task one
+     *  To be triggered by the "PieChart (Male)" button on the Task one Tab
+     *  
+     */
     @FXML
     void doPieChart_T1_M() {
-    	int year = Integer.parseInt(textfieldYear_T1.getText());
-    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	String _year = textfieldYear_T1.getText();
+    	String _topN = textfieldTopN_T1.getText();
+    	if(!Task1_AnalyzeNames.checkEmpty_T1(_year, _topN)) {
+    		return;
+    	}
+    	int year = Integer.parseInt(_year);
+    	int topN = Integer.parseInt(_topN);
+    	if(!Task1_AnalyzeNames.checkValidInput_T1(year, topN)) {
+    		return;
+    	}
     	Task1_AnalyzeNames.showPieChart_M(year, topN); 
     }
     
+    /**
+     *  Task one
+     *  To be triggered by the "PieChart (Female)" button on the Task one Tab
+     *  
+     */
     @FXML
     void doPieChart_T1_F() {
-    	int year = Integer.parseInt(textfieldYear_T1.getText());
-    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	String _year = textfieldYear_T1.getText();
+    	String _topN = textfieldTopN_T1.getText();
+    	if(!Task1_AnalyzeNames.checkEmpty_T1(_year, _topN)) {
+    		return;
+    	}
+    	int year = Integer.parseInt(_year);
+    	int topN = Integer.parseInt(_topN);
+    	if(!Task1_AnalyzeNames.checkValidInput_T1(year, topN)) {
+    		return;
+    	}
     	Task1_AnalyzeNames.showPieChart_F(year, topN); 
 
     }
 
-
+    /**
+     *  Task one
+     *  To be triggered by the "BarChart (Male)" button on the Task one Tab
+     *  
+     */
     @FXML
     void doBarChart_T1_M() {
-    	int year = Integer.parseInt(textfieldYear_T1.getText());
-    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	String _year = textfieldYear_T1.getText();
+    	String _topN = textfieldTopN_T1.getText();
+    	if(!Task1_AnalyzeNames.checkEmpty_T1(_year, _topN)) {
+    		return;
+    	}
+    	int year = Integer.parseInt(_year);
+    	int topN = Integer.parseInt(_topN);
+    	if(!Task1_AnalyzeNames.checkValidInput_T1(year, topN)) {
+    		return;
+    	}
     	Task1_AnalyzeNames.showBarChart_M(year, topN); 	
     }
     
+    /**
+     *  Task one
+     *  To be triggered by the "BarChart (Female)" button on the Task one Tab
+     *  
+     */
     @FXML
     void doBarChart_T1_F() {
-    	int year = Integer.parseInt(textfieldYear_T1.getText());
-    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	String _year = textfieldYear_T1.getText();
+    	String _topN = textfieldTopN_T1.getText();
+    	if(!Task1_AnalyzeNames.checkEmpty_T1(_year, _topN)) {
+    		return;
+    	}
+    	int year = Integer.parseInt(_year);
+    	int topN = Integer.parseInt(_topN);
+    	if(!Task1_AnalyzeNames.checkValidInput_T1(year, topN)) {
+    		return;
+    	}
     	Task1_AnalyzeNames.showBarChart_F(year, topN); 	
     }
     
-    //*******************************
-    
-    //*******************************
-    //Task4
+    /**
+     *  Task four
+     *  To be triggered by the "TX41" button on the Task four Tab
+     *  
+     */
     
     @FXML
     void t4x1_T4() {
-    	int dadYOB = Integer.parseInt(textfieldDadYOB_T4.getText());
-    	int momYOB = Integer.parseInt(textfieldMomYOB_T4.getText());
+    	String _dadYOB = textfieldDadYOB_T4.getText();
+    	String _momYOB = textfieldMomYOB_T4.getText();
+    	if(!Task1_AnalyzeNames.checkEmpty_T1(_dadYOB, _momYOB)) {
+    		return;
+    	}
+    	int dadYOB = Integer.parseInt(_dadYOB);
+    	int momYOB = Integer.parseInt(_momYOB);
+    	if(!Task1_AnalyzeNames.checkValidInput_T1(dadYOB, momYOB)) {
+    		return;
+    	}
     	String dadName = textfieldDadName_T4.getText();
     	String momName = textfieldMomName_T4.getText();
+    	if(!Task1_AnalyzeNames.checkEmpty_T1(dadName, momName)) {
+    		return;
+    	}
     	String oReport = Task4_nameRecommendation.t4x1_func(dadYOB, momYOB, dadName, momName);
     	textAreaConsole.setText(oReport);
     }
     
+    
+    /**
+     *  Task four
+     *  To be triggered by the "TX42" button on the Task four Tab
+     *  
+     */
     @FXML
     void t4x2_T4() {
-    	int dadYOB = Integer.parseInt(textfieldDadYOB_T4.getText());
-    	int momYOB = Integer.parseInt(textfieldMomYOB_T4.getText());
+    	String _dadYOB = textfieldDadYOB_T4.getText();
+    	String _momYOB = textfieldMomYOB_T4.getText();
+    	if(!Task1_AnalyzeNames.checkEmpty_T1(_dadYOB, _momYOB)) {
+    		return;
+    	}
+    	int dadYOB = Integer.parseInt(_dadYOB);
+    	int momYOB = Integer.parseInt(_momYOB);
+    	if(Task1_AnalyzeNames.checkValidInput_T1(dadYOB, momYOB)) {
+    		return;
+    	}
     	String dadName = textfieldDadName_T4.getText();
     	String momName = textfieldMomName_T4.getText();
+    	if(Task1_AnalyzeNames.checkEmpty_T1(dadName, momName)) {
+    		return;
+    	}
     	String oReport = Task4_nameRecommendation.t4x2_func(dadYOB, momYOB, dadName, momName);
     	textAreaConsole.setText(oReport);
     }
+
 
    
 
@@ -525,6 +650,7 @@ public class Controller implements Initializable{
     	else
     		return;
     }
+
     
     /**
      *  Task five
