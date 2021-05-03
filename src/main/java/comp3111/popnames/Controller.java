@@ -411,9 +411,6 @@ public class Controller implements Initializable{
     		return;
     }
     
-
-  
-    
     
     /**
      *  Task one
@@ -421,7 +418,6 @@ public class Controller implements Initializable{
      *  
      */
     
-
     @FXML
     void doSummary_T1() {
     	String _year = textfieldYear_T1.getText();
@@ -614,6 +610,7 @@ public class Controller implements Initializable{
     	String oReport = Task4_nameRecommendation.t4x2_func(dadYOB, momYOB, dadName, momName);
     	textAreaConsole.setText(oReport);
     }
+
 
 
    
