@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.net.URL;
-import comp3111.popnames.KthPopularNames;
-import comp3111.popnames.PredictionOnNamesForCompatiblePairs;
+import comp3111.popnames.Task2_KthPopularNames;
+import comp3111.popnames.Task5_PredictionPairsName;
 import comp3111.popnames.PopupWindow;
 
 import org.eclipse.jetty.util.resource.Resource;
@@ -171,7 +171,7 @@ public class Controller implements Initializable{
     	});
     }
     
-
+    @FXML
     private Button buttonDataTable_T1;
 
     @FXML
@@ -309,7 +309,7 @@ public class Controller implements Initializable{
     	String tmp_year1 = t2_textfield_yoi1.getText();
     	String tmp_year2 = t2_textfield_yoi2.getText();
     	PopupWindow pw = new PopupWindow();
-    	KthPopularNames kpn = new KthPopularNames();
+    	Task2_KthPopularNames kpn = new Task2_KthPopularNames();
     	
     	if(kpn.dataChecker(t2_textfield_yoi1, t2_textfield_yoi2, t2_textfield_k_th)) {
 	    	iYear1 = Integer.parseInt(tmp_year1);
@@ -338,7 +338,7 @@ public class Controller implements Initializable{
     	String tmp_year1 = t2_textfield_yoi1.getText();
     	String tmp_year2 = t2_textfield_yoi2.getText();
     	PopupWindow pw = new PopupWindow();
-    	KthPopularNames kpn = new KthPopularNames();
+    	Task2_KthPopularNames kpn = new Task2_KthPopularNames();
     	
     	if(kpn.dataChecker(t2_textfield_yoi1, t2_textfield_yoi2, t2_textfield_k_th)) {
 	    	iYear1 = Integer.parseInt(tmp_year1);
@@ -367,7 +367,7 @@ public class Controller implements Initializable{
     	String tmp_year1 = t2_textfield_yoi1.getText();
     	String tmp_year2 = t2_textfield_yoi2.getText();
     	PopupWindow pw = new PopupWindow();
-    	KthPopularNames kpn = new KthPopularNames();
+    	Task2_KthPopularNames kpn = new Task2_KthPopularNames();
     	
     	if(kpn.dataChecker(t2_textfield_yoi1, t2_textfield_yoi2, t2_textfield_k_th)) {
 	    	iYear1 = Integer.parseInt(tmp_year1);
@@ -397,7 +397,7 @@ public class Controller implements Initializable{
     	String tmp_year1 = t2_textfield_yoi1.getText();
     	String tmp_year2 = t2_textfield_yoi2.getText();
     	PopupWindow pw = new PopupWindow();
-    	KthPopularNames kpn = new KthPopularNames();
+    	Task2_KthPopularNames kpn = new Task2_KthPopularNames();
     	
     	if(kpn.dataChecker(t2_textfield_yoi1, t2_textfield_yoi2, t2_textfield_k_th)) {
 	    	iYear1 = Integer.parseInt(tmp_year1);
@@ -409,41 +409,6 @@ public class Controller implements Initializable{
     	}
     	else
     		return;
-    }
-    
-    
-    /**
-     *  Task five
-     *  To be triggered by the "Summary" button on the Task two Tab
-     *  
-     */
-    @FXML
-    void doPredictionOnNamesForSummary() {
-    	int year = -1;
-    	int yearRange = -1;
-    	String name = "";
-    	String gender = "";
-    	String genderMate = "";
-    	String preference = "";
-    	String algorithm = "";
-    	PredictionOnNamesForCompatiblePairs pnp = new PredictionOnNamesForCompatiblePairs();
-    	
-    	if(pnp.dataChecker(t5_textfield_name,t5_textfield_year,t5_combobox_gender,t5_combobox_gender_mate,t5_combobox_preference,t5_combobox_algorithm,t5_combobox_year_range))
-    	{
-        	name = t5_textfield_name.getText();
-        	String tmp_year = t5_textfield_year.getText();
-        	year =Integer.parseInt(tmp_year);
-        	gender = t5_combobox_gender.getSelectionModel().getSelectedItem().toString();
-        	genderMate = t5_combobox_gender_mate.getSelectionModel().getSelectedItem().toString();
-        	preference = t5_combobox_preference.getSelectionModel().getSelectedItem().toString();
-        	algorithm = t5_combobox_algorithm.getSelectionModel().getSelectedItem().toString();
-        	yearRange = Integer.parseInt(t5_combobox_year_range.getSelectionModel().getSelectedItem().toString());
-    		List<String> result = pnp.report(year,yearRange,algorithm,genderMate.trim().charAt(0),preference,name);
-    		textAreaConsole.setText(pnp.getSummary(result, year, yearRange, preference, algorithm));	
-    	}
-    	else
-    		return;
-    
     }
     
     
@@ -602,17 +567,17 @@ public class Controller implements Initializable{
     void t4x1_T4() {
     	String _dadYOB = textfieldDadYOB_T4.getText();
     	String _momYOB = textfieldMomYOB_T4.getText();
-    	if(!Task1_AnalyzeNames.checkEmpty_T1(_dadYOB, _momYOB)) {
+    	if(!Task4_nameRecommendation.checkEmpty_T4(_dadYOB, _momYOB)) {
     		return;
     	}
     	int dadYOB = Integer.parseInt(_dadYOB);
     	int momYOB = Integer.parseInt(_momYOB);
-    	if(!Task1_AnalyzeNames.checkValidInput_T1(dadYOB, momYOB)) {
+    	if(!Task4_nameRecommendation.checkBirthday_T4(dadYOB, momYOB)) {
     		return;
     	}
     	String dadName = textfieldDadName_T4.getText();
     	String momName = textfieldMomName_T4.getText();
-    	if(!Task1_AnalyzeNames.checkEmpty_T1(dadName, momName)) {
+    	if(!Task4_nameRecommendation.checkEmpty_T4(dadName, momName)) {
     		return;
     	}
     	String oReport = Task4_nameRecommendation.t4x1_func(dadYOB, momYOB, dadName, momName);
@@ -629,25 +594,60 @@ public class Controller implements Initializable{
     void t4x2_T4() {
     	String _dadYOB = textfieldDadYOB_T4.getText();
     	String _momYOB = textfieldMomYOB_T4.getText();
-    	if(!Task1_AnalyzeNames.checkEmpty_T1(_dadYOB, _momYOB)) {
+    	if(!Task4_nameRecommendation.checkEmpty_T4(_dadYOB, _momYOB)) {
     		return;
     	}
     	int dadYOB = Integer.parseInt(_dadYOB);
     	int momYOB = Integer.parseInt(_momYOB);
-    	if(Task1_AnalyzeNames.checkValidInput_T1(dadYOB, momYOB)) {
+    	if(!Task4_nameRecommendation.checkBirthday_T4(dadYOB, momYOB)) {
     		return;
     	}
     	String dadName = textfieldDadName_T4.getText();
     	String momName = textfieldMomName_T4.getText();
-    	if(Task1_AnalyzeNames.checkEmpty_T1(dadName, momName)) {
+    	if(!Task4_nameRecommendation.checkEmpty_T4(dadName, momName)) {
     		return;
     	}
     	String oReport = Task4_nameRecommendation.t4x2_func(dadYOB, momYOB, dadName, momName);
     	textAreaConsole.setText(oReport);
     }
-    
-    
-    //*******************************
+
+
+
+   
+
+    /**
+     *  Task five
+     *  To be triggered by the "Summary" button on the Task two Tab
+     *  
+     */
+    @FXML
+    void doPredictionOnNamesForSummary() {
+    	int year = -1;
+    	int yearRange = -1;
+    	String name = "";
+    	String gender = "";
+    	String genderMate = "";
+    	String preference = "";
+    	String algorithm = "";
+    	Task5_PredictionPairsName pnp = new Task5_PredictionPairsName();
+
+    	if(pnp.dataChecker(t5_textfield_name,t5_textfield_year,t5_combobox_gender,t5_combobox_gender_mate,t5_combobox_preference,t5_combobox_algorithm,t5_combobox_year_range))
+    	{
+        	name = t5_textfield_name.getText();
+        	String tmp_year = t5_textfield_year.getText();
+        	year =Integer.parseInt(tmp_year);
+        	gender = t5_combobox_gender.getSelectionModel().getSelectedItem().toString();
+        	genderMate = t5_combobox_gender_mate.getSelectionModel().getSelectedItem().toString();
+        	preference = t5_combobox_preference.getSelectionModel().getSelectedItem().toString();
+        	algorithm = t5_combobox_algorithm.getSelectionModel().getSelectedItem().toString();
+        	yearRange = Integer.parseInt(t5_combobox_year_range.getSelectionModel().getSelectedItem().toString());
+    		List<String> result = pnp.report(year,yearRange,algorithm,genderMate.trim().charAt(0),preference,name);
+    		textAreaConsole.setText(pnp.getSummary(result, year, yearRange, preference, algorithm));	
+    	}
+    	else
+    		return;
+    }
+
     
     /**
      *  Task five
@@ -664,7 +664,7 @@ public class Controller implements Initializable{
     	String preference = "";
     	String algorithm = "";
     	PopupWindow pw = new PopupWindow();
-    	PredictionOnNamesForCompatiblePairs pnp = new PredictionOnNamesForCompatiblePairs();
+    	Task5_PredictionPairsName pnp = new Task5_PredictionPairsName();
 
     	if(pnp.dataChecker(t5_textfield_name,t5_textfield_year,t5_combobox_gender,t5_combobox_gender_mate,t5_combobox_preference,t5_combobox_algorithm,t5_combobox_year_range))
     	{

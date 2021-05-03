@@ -69,4 +69,32 @@ public class Task4_nameRecommendation {
 		
 		return oReport;	
 	}
+	
+	
+	/**
+	 * Task4
+	 * check validity of input birthday 
+	 * 
+	 */
+	
+	public static boolean checkBirthday_T4(int dadYOB, int momYOB) {
+		if(dadYOB < 1880 || dadYOB > 2019 || momYOB < 1880 || momYOB > 2019) {
+			PopupWindow.displayErrorMsg("error", "Invalid year input!");
+			return false;
+		}
+		return true;
+	}
+	/**
+	 * Task4
+	 * check emptiness of input 
+	 * 
+	 */
+	
+	public static boolean checkEmpty_T4(String input1, String input2) {
+		if(input1 == ""  || input2 == "" ) {
+			PopupWindow.displayErrorMsg("error", "Input cannot be empty");
+			return false;
+		}
+		return true;	
+	}
 }

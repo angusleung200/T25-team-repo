@@ -86,6 +86,8 @@
 	                              	<Button fx:id="t2_button_pie_report" layoutX="470.0" layoutY="188.0" mnemonicParsing="false" onAction="#doKThPopularNamesForPie" text="Pie Chart" />
                                     <ComboBox fx:id="t2_comboBox_gender" layoutX="260.0" layoutY="155.0" prefHeight="26.0" prefWidth="250.0" promptText="Choose">
                                     </ComboBox>
+                                    <Label layoutX="517.0" layoutY="67.0" text="Range: 1880 - 2019" />
+                                    <Label layoutX="517.0" layoutY="98.0" text="Range: 1880 - 2019" />
                              	</children>	
                               </AnchorPane>
                            </children>
@@ -114,7 +116,7 @@
                               <TextField fx:id="textfieldMomName_T4" layoutX="240.0" layoutY="118.0" prefHeight="26.0" prefWidth="150.0" promptText="e.g Mary" />
                               <TextField fx:id="textfieldDadYOB_T4" layoutX="239.0" layoutY="149.0" prefHeight="23.0" prefWidth="151.0" promptText="e.g 1999" />
                               <Button fx:id="buttonT4X1_T4" layoutX="239.0" layoutY="219.0" mnemonicParsing="false" onAction="#t4x1_T4" text="T4X1" />
-                              <Label layoutX="120.0" layoutY="94.0" text="Baby's dad Name" />
+                              <Label layoutX="124.0" layoutY="93.0" text="Baby's dad Name" />
                               <TextField fx:id="textfieldDadName_T4" layoutX="240.0" layoutY="88.0" prefHeight="26.0" prefWidth="149.0" promptText="e.g David" />
                               <Label layoutX="170.0" layoutY="223.0" text="Algorithm" />
                               <Button fx:id="buttonT4X2_T4" layoutX="292.0" layoutY="219.0" mnemonicParsing="false" onAction="#t4x2_T4" text="T4X2" />
@@ -139,12 +141,12 @@
                               <Label layoutX="109.0" layoutY="63.0" prefHeight="18.0" prefWidth="100.0" text="Gender" />
                               <Label layoutX="109.0" layoutY="99.0" prefHeight="18.0" prefWidth="100.0" text="Year" />
                               <Label layoutX="109.0" layoutY="130.0" prefHeight="18.0" prefWidth="100.0" text="Gender Mate" />
-                              <Label layoutX="109.0" layoutY="166.0" prefHeight="18.0" prefWidth="100.0" text="Preference" />
-                              <TextField fx:id="t5_textfield_name" layoutX="209.0" layoutY="28.0" prefWidth="250"/>
-                              <TextField fx:id="t5_textfield_year" layoutX="208.0" layoutY="95.0" prefWidth="250"/>
+                              <Label layoutX="109.0" layoutY="206.0" prefHeight="18.0" prefWidth="100.0" text="Preference" />
+                              <TextField fx:id="t5_textfield_name" layoutX="209.0" layoutY="28.0" prefWidth="250" />
+                              <TextField fx:id="t5_textfield_year" layoutX="208.0" layoutY="95.0" prefWidth="250" />
                               <ComboBox fx:id="t5_combobox_gender" layoutX="209.0" layoutY="60.0" prefWidth="250" />
                               <ComboBox fx:id="t5_combobox_gender_mate" layoutX="209.0" layoutY="127.0" prefWidth="250" />
-                              <Label layoutX="107.0" layoutY="205.0" prefHeight="18.0" prefWidth="100.0" text="Algorithm" />
+                              <Label layoutX="109.0" layoutY="167.0" prefHeight="18.0" prefWidth="100.0" text="Algorithm" />
                               <ComboBox fx:id="t5_combobox_preference" layoutX="207.0" layoutY="202.0" prefWidth="250" />
                               <ComboBox fx:id="t5_combobox_algorithm" layoutX="208.0" layoutY="163.0" prefWidth="250" />
                               <Label layoutX="107.0" layoutY="271.0" prefHeight="18.0" prefWidth="100.0" text="Report" />
@@ -152,6 +154,7 @@
                               <Label layoutX="109.0" layoutY="236.0" prefHeight="18.0" prefWidth="100.0" text="Year Range" />
                               <ComboBox fx:id="t5_combobox_year_range" layoutX="207.0" layoutY="232.0" prefWidth="250" />
                               <Button layoutX="282.0" layoutY="268.0" mnemonicParsing="false" onAction="#doPredictionOnNamesForTable" text="Table" />
+                              <Label layoutX="467.0" layoutY="100.0" text="Range: 1880 - 2019" />
                            </children>
                         </AnchorPane>
                     </content>

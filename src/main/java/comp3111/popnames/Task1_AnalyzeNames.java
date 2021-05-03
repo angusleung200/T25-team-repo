@@ -295,13 +295,17 @@ public class Task1_AnalyzeNames {
 	
 	/**
 	 * Task1
-	 * check validity of input and 
+	 * check validity of input 
 	 * 
 	 */
 	
 	public static boolean checkValidInput_T1(int year, int topN) {
-		if(year < 1880 || year > 2019 || topN < 1 || topN > 1000) {
+		if(year < 1880 || year > 2019) {
 			PopupWindow.displayErrorMsg("error", "Invalid year input!");
+			return false;
+		}
+		else if (topN < 1 || topN > 1000) {
+			PopupWindow.displayErrorMsg("error", "Invalid N input!");
 			return false;
 		}
 		return true;
