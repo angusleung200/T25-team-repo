@@ -4,11 +4,18 @@
 package comp3111.popnames;
 
 import javafx.fxml.FXML;
+import javafx.scene.chart.BarChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+
+import javax.swing.*;
+
 
 public class Controller {
 
@@ -69,6 +76,42 @@ public class Controller {
     @FXML
     private TextArea textAreaConsole;
     
+    @FXML
+    private Button buttonDataTable_T1;
+
+    @FXML
+    private Button buttonPieChart_T1;
+
+    @FXML
+    private Button buttonBarChart_T1;
+
+    @FXML
+    private Button buttonSummary_T1;
+    
+    @FXML
+    private TextField textfieldYear_T1;
+    
+    @FXML
+    private TextField textfieldTopN_T1;
+    
+    @FXML
+    private TextField textfieldDadName_T4;
+    
+    @FXML
+    private TextField textfieldMomName_T4;
+    
+    @FXML
+    private TextField textfieldDadYOB_T4;
+    
+    @FXML
+    private TextField textfieldMomYOB_T4;
+    
+    @FXML
+    private Button buttonT4X1_T4;
+
+    @FXML
+    private Button buttonT4X2_T4;
+
 
     /**
      *  Task Zero
@@ -153,6 +196,89 @@ public class Controller {
     		oReport += String.format("#%d: %s\n", i, AnalyzeNames.getName(iYear, i, "M"));
     	textAreaConsole.setText(oReport);
     }
+    
+    //***************************
+    // Task 1
+    @FXML
+    void doSummary_T1() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	String oReport = Task1_AnalyzeNames.getSummary(year, topN);
+    	textAreaConsole.setText(oReport);
+    }
+    
+    @FXML
+    void doDataTable_M_T1() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	JTable dataTable_M = Task1_AnalyzeNames.getDataTable_M(year, topN);
+    }
+    
+    @FXML
+    void doDataTable_F_T1() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	JTable dataTable_M = Task1_AnalyzeNames.getDataTable_F(year, topN);
+    }
+
+  
+    @FXML
+    void doPieChart_T1_M() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	Task1_AnalyzeNames.showPieChart_M(year, topN); 
+    }
+    
+    @FXML
+    void doPieChart_T1_F() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	Task1_AnalyzeNames.showPieChart_F(year, topN); 
+
+    }
+
+
+    @FXML
+    void doBarChart_T1_M() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	Task1_AnalyzeNames.showBarChart_M(year, topN); 	
+    }
+    
+    @FXML
+    void doBarChart_T1_F() {
+    	int year = Integer.parseInt(textfieldYear_T1.getText());
+    	int topN = Integer.parseInt(textfieldTopN_T1.getText());
+    	Task1_AnalyzeNames.showBarChart_F(year, topN); 	
+    }
+    
+    //*******************************
+    
+    //*******************************
+    //Task4
+    
+    @FXML
+    void t4x1_T4() {
+    	int dadYOB = Integer.parseInt(textfieldDadYOB_T4.getText());
+    	int momYOB = Integer.parseInt(textfieldMomYOB_T4.getText());
+    	String dadName = textfieldDadName_T4.getText();
+    	String momName = textfieldMomName_T4.getText();
+    	String oReport = Task4_nameRecommendation.t4x1_func(dadYOB, momYOB, dadName, momName);
+    	textAreaConsole.setText(oReport);
+    }
+    
+    @FXML
+    void t4x2_T4() {
+    	int dadYOB = Integer.parseInt(textfieldDadYOB_T4.getText());
+    	int momYOB = Integer.parseInt(textfieldMomYOB_T4.getText());
+    	String dadName = textfieldDadName_T4.getText();
+    	String momName = textfieldMomName_T4.getText();
+    	String oReport = Task4_nameRecommendation.t4x2_func(dadYOB, momYOB, dadName, momName);
+    	textAreaConsole.setText(oReport);
+    }
+    
+    
+    //*******************************
     
 
 }

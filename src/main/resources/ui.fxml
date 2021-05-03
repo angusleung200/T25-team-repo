@@ -9,8 +9,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="679.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3111.popnames.Controller">
+<VBox prefHeight="679.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3111.popnames.Controller">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="437.0" prefWidth="719.0">
       <children>
@@ -22,7 +23,7 @@
                            <children>
                               <Label layoutX="98.0" layoutY="67.0" prefHeight="18.0" prefWidth="87.0" text="Name (female)" />
                               <Label layoutX="98.0" layoutY="98.0" text="Year of Interest" />
-                              <TextField fx:id="textfieldNameF" layoutX="185.0" layoutY="64.0" prefHeight="26.0" prefWidth="150.0" promptText="e.g 1830 (18: yr 18-19; 30: Spring)" text="Desire" />
+                              <TextField fx:id="textfieldNameF" layoutX="185.0" layoutY="64.0" prefHeight="26.0" prefWidth="150.0" promptText="e.g 1830" text="Desire" />
                               <TextField fx:id="textfieldYear" layoutX="185.0" layoutY="95.0" text="2019" />
                               <Button fx:id="buttonRankM" layoutX="185.0" layoutY="134.0" mnemonicParsing="false" onAction="#doRankM" text="Rank (male)" />
                               <Label layoutX="98.0" layoutY="35.0" text="Name (male)" />
@@ -37,12 +38,29 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab fx:id="tabReport1" text="Reporting 1">
+                  <Tab fx:id="tabReport1" text="Task 1">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="384.0" prefWidth="719.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="384.0" prefWidth="719.0"> 
                            <children>
-                              <Label layoutX="79.0" layoutY="44.0" />
-                              <TextArea layoutX="96.0" layoutY="24.0" prefHeight="99.0" prefWidth="398.0" text="Task #1: Most Popular Names (data reporting)&#10;&#10;Generate a report in response to the queries on the most popular names in a given year.&#10;" wrapText="true" />
+                             <Label layoutX="174.0" layoutY="137.0" prefHeight="18.0" prefWidth="10.0" text="N" />
+                              <Label layoutX="100.0" layoutY="106.0" text="Year of Interest" />
+                              <TextField fx:id="textfieldTopN_T1" layoutX="193.0" layoutY="133.0" prefHeight="26.0" prefWidth="150.0" promptText="e.g 1 2 3" />
+                              <Button fx:id="buttonSummary_T1" layoutX="194.0" layoutY="171.0" mnemonicParsing="false" onAction="#doSummary_T1" text="Summary" />
+                              <TextField fx:id="textfieldYear_T1" layoutX="194.0" layoutY="101.0" prefHeight="26.0" prefWidth="149.0" promptText="e.g 1830 (18: yr 18-19; 30: Spring)" />
+                              <Label layoutX="138.0" layoutY="175.0" text="REPORT" />
+                              <Button fx:id="buttonDataTable_T1" layoutX="272.0" layoutY="171.0" mnemonicParsing="false" onAction="#doDataTable_M_T1" text="Data Table (Male)" />
+                              <Button fx:id="buttonBarChart_T1" layoutX="405.0" layoutY="171.0" mnemonicParsing="false" onAction="#doBarChart_T1_M" text="Bar Chart (Male)" />
+                              <Button fx:id="buttonPieChart_T1" layoutX="535.0" layoutY="171.0" mnemonicParsing="false" onAction="#doPieChart_T1_M" text="Pie Chart (Male)" />
+                              <Label layoutX="349.0" layoutY="106.0" text="Range: 1880 - 2019" />
+                              <Label layoutX="349.0" layoutY="139.0" prefHeight="15.0" prefWidth="178.0" text="Top N most popular names" />
+                              <Button fx:id="buttonDataTable_T11" layoutX="272.0" layoutY="205.0" mnemonicParsing="false" onAction="#doDataTable_F_T1" text="Data Table (Female)" />
+                              <Button fx:id="buttonBarChart_T11" layoutX="405.0" layoutY="205.0" mnemonicParsing="false" onAction="#doBarChart_T1_F" text="Bar Chart (Female)" />
+                              <Button fx:id="buttonPieChart_T11" layoutX="535.0" layoutY="205.0" mnemonicParsing="false" onAction="#doPieChart_T1_F" text="Pie Chart (Female)" />
+                              <Label layoutX="100.0" layoutY="33.0" prefHeight="55.0" prefWidth="403.0" text="Task1: Most popular Name (data reporting)">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
                     </content>
@@ -73,11 +91,28 @@
                         </AnchorPane>
                     </content>
                   </Tab>
-                  <Tab fx:id="tabApp1" text="Application1">
+                  <Tab fx:id="tabApp1" text="Task4">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="412.0" prefWidth="719.0">
                            <children>
-                              <TextArea layoutX="40.0" layoutY="26.0" prefHeight="106.0" prefWidth="538.0" text="Task #4: Recommendation on Names for Newborn Babies (application)&#10;&#10;Develop and implement an online service using empirical data to help make informed decisions on naming their newborn babies.&#10;" wrapText="true" />
+                              <Label layoutX="114.0" layoutY="122.0" prefHeight="18.0" prefWidth="112.0" text="Baby''s mom Name" />
+                              <Label layoutX="72.0" layoutY="153.0" text="Year of baby's dad birthday" />
+                              <TextField fx:id="textfieldMomName_T4" layoutX="240.0" layoutY="118.0" prefHeight="26.0" prefWidth="150.0" promptText="e.g Mary" />
+                              <TextField fx:id="textfieldDadYOB_T4" layoutX="239.0" layoutY="149.0" prefHeight="23.0" prefWidth="151.0" promptText="e.g 1999" />
+                              <Button fx:id="buttonT4X1_T4" layoutX="239.0" layoutY="219.0" mnemonicParsing="false" onAction="#t4x1_T4" text="T4X1" />
+                              <Label layoutX="120.0" layoutY="94.0" text="Baby's dad Name" />
+                              <TextField fx:id="textfieldDadName_T4" layoutX="240.0" layoutY="88.0" prefHeight="26.0" prefWidth="149.0" promptText="e.g David" />
+                              <Label layoutX="170.0" layoutY="223.0" text="Algorithm" />
+                              <Button fx:id="buttonT4X2_T4" layoutX="292.0" layoutY="219.0" mnemonicParsing="false" onAction="#t4x2_T4" text="T4X2" />
+                              <TextField fx:id="textfieldMomYOB_T4" layoutX="239.0" layoutY="178.0" prefHeight="25.0" prefWidth="152.0" promptText="e.g 1830" />
+                              <Label layoutX="64.0" layoutY="182.0" text="Year of baby's mom birthday" />
+                              <Label layoutX="112.0" layoutY="25.0" prefHeight="53.0" prefWidth="455.0" text="Task4: Name recommendation for newborn babies">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="400.0" layoutY="153.0" text="Range: 1880 - 2019" />
+                              <Label layoutX="400.0" layoutY="183.0" text="Range: 1880 - 2019" />
                            </children>
                         </AnchorPane>
                     </content>
