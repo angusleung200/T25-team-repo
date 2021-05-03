@@ -625,7 +625,7 @@ public class Controller implements Initializable{
     	String oReport = Task4_nameRecommendation.t4x2_func(dadYOB, momYOB, dadName, momName);
     	textAreaConsole.setText(oReport);
     }
-<<<<<<< HEAD
+
     
     
     //*******************************
@@ -642,12 +642,6 @@ public class Controller implements Initializable{
     	String gender = textfeildGender_T3.getText();
     	JTable finalTable = Task3Name.getFinalTable(year1,year2,name,gender);
     }
-   
-=======
->>>>>>> angus_dev
-
-
-
    
 
     /**
