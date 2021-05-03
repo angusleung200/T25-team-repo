@@ -3,14 +3,29 @@
  */
 package comp3111.popnames;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Observable;
+import java.util.ResourceBundle;
+import java.net.URL;
+import comp3111.popnames.KthPopularNames;
+import comp3111.popnames.PredictionOnNamesForCompatiblePairs;
+import comp3111.popnames.PopupWindow;
+
+import org.eclipse.jetty.util.resource.Resource;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
-public class Controller {
+public class Controller implements Initializable{
 
     @FXML
     private Tab tabTaskZero;
@@ -69,7 +84,83 @@ public class Controller {
     @FXML
     private TextArea textAreaConsole;
     
-
+    @FXML
+    private TextField t2_textfield_yoi1;
+    
+    @FXML
+    private TextField t2_textfield_yoi2;
+    
+    @FXML
+    private TextField t2_textfield_k_th;
+    
+    @FXML
+    private TextField t5_textfield_name;
+    
+    @FXML
+    private TextField t5_textfield_year;
+    
+    @FXML
+    private ComboBox<String>  t2_comboBox_gender;
+    
+    @FXML
+    private ComboBox<String>  t5_combobox_gender;
+    
+    @FXML
+    private ComboBox<String>  t5_combobox_gender_mate;
+    
+    @FXML
+    private ComboBox<String>  t5_combobox_preference;
+    
+    @FXML
+    private ComboBox<String>  t5_combobox_algorithm;
+    
+    @FXML
+    private ComboBox<String>  t5_combobox_year_range;
+    
+    @FXML
+    private Button t2_button_table_report;
+    
+    @FXML
+    private Button t2_button_summary_report;
+    
+    @FXML
+    private Button t2_button_bar_report;
+    
+    @FXML
+    private Button t2_button_pie_report;
+    
+    
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+    	t2_comboBox_gender.setItems(FXCollections.observableArrayList("Male","Female"));
+    	t2_comboBox_gender.setValue("Male");
+    	t5_combobox_gender.setItems(FXCollections.observableArrayList("Male","Female"));
+    	t5_combobox_gender.setValue("Male");
+    	t5_combobox_gender_mate.setItems(FXCollections.observableArrayList("Male","Female"));
+    	t5_combobox_gender_mate.setValue("Female");
+    	t5_combobox_preference.setItems(FXCollections.observableArrayList("Younger","Older"));
+    	t5_combobox_preference.setValue("Younger");
+    	t5_combobox_algorithm.setItems(FXCollections.observableArrayList("T5X1","T5X2"));
+    	t5_combobox_algorithm.setValue("T5X1");
+    	t5_combobox_year_range.setItems(FXCollections.observableArrayList("1","5","10","15","20"));
+    	t5_combobox_year_range.setValue("1");
+    	t5_combobox_year_range.setDisable(true);
+		t5_combobox_preference.setDisable(true);
+    	t5_combobox_algorithm.setOnAction((event) -> {
+    			if(t5_combobox_algorithm.getSelectionModel().getSelectedItem().equals("T5X1"))
+    			{
+    				t5_combobox_year_range.setDisable(true);
+    				t5_combobox_preference.setDisable(true);
+    			}
+    			else {
+    				t5_combobox_year_range.setDisable(false);
+    				t5_combobox_preference.setDisable(false);
+    			}
+    	
+    	});
+    }
+    
     /**
      *  Task Zero
      *  To be triggered by the "Summary" button on the Task Zero Tab 
@@ -154,6 +245,191 @@ public class Controller {
     	textAreaConsole.setText(oReport);
     }
     
+    
+    /**
+     *  Task two
+     *  To be triggered by the "Summary" button on the Task two Tab
+     *  
+     */
+    @FXML
+    void doKThPopularNamesForSummary() {
+    	int iYear1 = -1;
+    	int iYear2 = -1;
+    	int k = -1;
+    	String summary = "";
+    	String gender = "";
+    	String tmp_year1 = t2_textfield_yoi1.getText();
+    	String tmp_year2 = t2_textfield_yoi2.getText();
+    	PopupWindow pw = new PopupWindow();
+    	KthPopularNames kpn = new KthPopularNames();
+    	
+    	if(kpn.dataChecker(t2_textfield_yoi1, t2_textfield_yoi2, t2_textfield_k_th)) {
+	    	iYear1 = Integer.parseInt(tmp_year1);
+			iYear2 = Integer.parseInt(tmp_year2);
+			k = Integer.parseInt(t2_textfield_k_th.getText());
+			gender = t2_comboBox_gender.getSelectionModel().getSelectedItem().toString();
+	    	List<ArrayList<String>> result = kpn.report(iYear1, iYear2, k, gender.trim().charAt(0));		    	
+	    	textAreaConsole.setText(kpn.getSummary(result, iYear1, iYear2, k,gender.trim().charAt(0)));
+    	}
+    	else
+    		return;
+    }
+    
+    /**
+     *  Task two
+     *  To be triggered by the "Table" button on the Task two Tab
+     *  
+     */
+    @FXML
+    void doKThPopularNamesForTable() {
+    	int iYear1 = -1;
+    	int iYear2 = -1;
+    	int k = -1;
+    	String summary = "";
+    	String gender = "";
+    	String tmp_year1 = t2_textfield_yoi1.getText();
+    	String tmp_year2 = t2_textfield_yoi2.getText();
+    	PopupWindow pw = new PopupWindow();
+    	KthPopularNames kpn = new KthPopularNames();
+    	
+    	if(kpn.dataChecker(t2_textfield_yoi1, t2_textfield_yoi2, t2_textfield_k_th)) {
+	    	iYear1 = Integer.parseInt(tmp_year1);
+			iYear2 = Integer.parseInt(tmp_year2);
+			k = Integer.parseInt(t2_textfield_k_th.getText());
+			gender = t2_comboBox_gender.getSelectionModel().getSelectedItem().toString();
+	    	List<ArrayList<String>> result = kpn.report(iYear1, iYear2, k, gender.trim().charAt(0));		    	
+	    	pw.displayTableTask2("K-thPopular Names",result);
+    	}
+    	else
+    		return;
+    }
+    
+    /**
+     *  Task two
+     *  To be triggered by the "Pie" button on the Task two Tab
+     *  
+     */
+    @FXML
+    void doKThPopularNamesForPie() {
+    	int iYear1 = -1;
+    	int iYear2 = -1;
+    	int k = -1;
+    	String summary = "";
+    	String gender = "";
+    	String tmp_year1 = t2_textfield_yoi1.getText();
+    	String tmp_year2 = t2_textfield_yoi2.getText();
+    	PopupWindow pw = new PopupWindow();
+    	KthPopularNames kpn = new KthPopularNames();
+    	
+    	if(kpn.dataChecker(t2_textfield_yoi1, t2_textfield_yoi2, t2_textfield_k_th)) {
+	    	iYear1 = Integer.parseInt(tmp_year1);
+			iYear2 = Integer.parseInt(tmp_year2);
+			k = Integer.parseInt(t2_textfield_k_th.getText());
+			gender = t2_comboBox_gender.getSelectionModel().getSelectedItem().toString();
+	    	List<ArrayList<String>> result = kpn.report(iYear1, iYear2, k, gender.trim().charAt(0));		    	
+	    	pw.displayPieChartTask2("K-th Popular Names",result);
+    	}
+    	else
+    		return;
+    }
+    
+    
+    /**
+     *  Task two
+     *  To be triggered by the "Bar Chart" button on the Task two Tab
+     *  
+     */
+    @FXML
+    void doKThPopularNamesForBar() {
+    	int iYear1 = -1;
+    	int iYear2 = -1;
+    	int k = -1;
+    	String summary = "";
+    	String gender = "";
+    	String tmp_year1 = t2_textfield_yoi1.getText();
+    	String tmp_year2 = t2_textfield_yoi2.getText();
+    	PopupWindow pw = new PopupWindow();
+    	KthPopularNames kpn = new KthPopularNames();
+    	
+    	if(kpn.dataChecker(t2_textfield_yoi1, t2_textfield_yoi2, t2_textfield_k_th)) {
+	    	iYear1 = Integer.parseInt(tmp_year1);
+			iYear2 = Integer.parseInt(tmp_year2);
+			k = Integer.parseInt(t2_textfield_k_th.getText());
+			gender = t2_comboBox_gender.getSelectionModel().getSelectedItem().toString();
+	    	List<ArrayList<String>> result = kpn.report(iYear1, iYear2, k, gender.trim().charAt(0));		    	
+	    	pw.displayBarChartTask2("K-th Popular Names",result);
+    	}
+    	else
+    		return;
+    }
+    
+    
+    /**
+     *  Task five
+     *  To be triggered by the "Summary" button on the Task two Tab
+     *  
+     */
+    @FXML
+    void doPredictionOnNamesForSummary() {
+    	int year = -1;
+    	int yearRange = -1;
+    	String name = "";
+    	String gender = "";
+    	String genderMate = "";
+    	String preference = "";
+    	String algorithm = "";
+    	PredictionOnNamesForCompatiblePairs pnp = new PredictionOnNamesForCompatiblePairs();
 
+    	if(pnp.dataChecker(t5_textfield_name,t5_textfield_year,t5_combobox_gender,t5_combobox_gender_mate,t5_combobox_preference,t5_combobox_algorithm,t5_combobox_year_range))
+    	{
+        	name = t5_textfield_name.getText();
+        	String tmp_year = t5_textfield_year.getText();
+        	year =Integer.parseInt(tmp_year);
+        	gender = t5_combobox_gender.getSelectionModel().getSelectedItem().toString();
+        	genderMate = t5_combobox_gender_mate.getSelectionModel().getSelectedItem().toString();
+        	preference = t5_combobox_preference.getSelectionModel().getSelectedItem().toString();
+        	algorithm = t5_combobox_algorithm.getSelectionModel().getSelectedItem().toString();
+        	yearRange = Integer.parseInt(t5_combobox_year_range.getSelectionModel().getSelectedItem().toString());
+    		List<String> result = pnp.report(year,yearRange,algorithm,genderMate.trim().charAt(0),preference,name);
+    		textAreaConsole.setText(pnp.getSummary(result, year, yearRange, preference, algorithm));	
+    	}
+    	else
+    		return;
+    }
+    
+    /**
+     *  Task five
+     *  To be triggered by the "Table" button on the Task two Tab
+     *  
+     */
+    @FXML
+    void doPredictionOnNamesForTable() {
+    	int year = -1;
+    	int yearRange = -1;
+    	String name = "";
+    	String gender = "";
+    	String genderMate = "";
+    	String preference = "";
+    	String algorithm = "";
+    	PopupWindow pw = new PopupWindow();
+    	PredictionOnNamesForCompatiblePairs pnp = new PredictionOnNamesForCompatiblePairs();
+
+    	if(pnp.dataChecker(t5_textfield_name,t5_textfield_year,t5_combobox_gender,t5_combobox_gender_mate,t5_combobox_preference,t5_combobox_algorithm,t5_combobox_year_range))
+    	{
+        	name = t5_textfield_name.getText();
+        	String tmp_year = t5_textfield_year.getText();
+        	year =Integer.parseInt(tmp_year);
+        	gender = t5_combobox_gender.getSelectionModel().getSelectedItem().toString();
+        	genderMate = t5_combobox_gender_mate.getSelectionModel().getSelectedItem().toString();
+        	preference = t5_combobox_preference.getSelectionModel().getSelectedItem().toString();
+        	algorithm = t5_combobox_algorithm.getSelectionModel().getSelectedItem().toString();
+        	yearRange = Integer.parseInt(t5_combobox_year_range.getSelectionModel().getSelectedItem().toString());
+    		List<String> result = pnp.report(year,yearRange,algorithm,genderMate.trim().charAt(0),preference,name);
+    		pw.displayTableTask5("Prediction on Names for Compatible Pairs", result);
+    	}
+    	else
+    		return;
+    	
+    }
 }
 
