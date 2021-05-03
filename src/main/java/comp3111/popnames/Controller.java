@@ -111,6 +111,21 @@ public class Controller {
 
     @FXML
     private Button buttonT4X2_T4;
+    
+    @FXML
+    private TextField textfieldYear1_T3;
+    
+    @FXML
+    private TextField textfieldYear2_T3;
+    
+    @FXML
+    private TextField textfieldName_T3;
+    
+    @FXML
+    private TextField textfeildGender_T3;
+    
+    @FXML
+    private Button buttonDataTable_T3;
 
 
     /**
@@ -280,6 +295,19 @@ public class Controller {
     
     //*******************************
     
+    //*******************************
+    //Task3
+    
+    @FXML
+    void doDataTable_T3() 
+    {
+    	int year1 = Integer.parseInt(textfieldYear1_T3.getText());
+    	int year2 = Integer.parseInt(textfieldYear2_T3.getText());
+    	String name = textfieldName_T3.getText();
+    	String gender = textfeildGender_T3.getText();
+    	JTable finalTable = Task3Name.getFinalTable(year1,year2,name,gender);
+    }
+   
 
 }
 
