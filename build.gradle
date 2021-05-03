@@ -30,6 +30,11 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     compile fileTree(include: ['*.jar'], dir: 'libs')
 }
+jacoco {
+
+   toolVersion = "0.8.6"
+
+}
 
 jacocoTestReport {
 	reports {
